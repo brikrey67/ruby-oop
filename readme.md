@@ -1,4 +1,4 @@
-```ruby# Intro to Object-Oriented Programming in Ruby
+# Intro to Object-Oriented Programming in Ruby
 
 ## Learning Objectives
 
