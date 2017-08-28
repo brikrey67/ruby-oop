@@ -3,16 +3,12 @@
 ## Learning Objectives
 
 - Explain the principles of Object Oriented Programming
-- Describe the process of Data Modeling
 - Describe the relationship between a class and an instance
 - Define a Ruby Class and instantiate it
 - Explain the relationship between `.new()` and `def initialize()`
-- Distinguish local, instance, or class variable
-- Contrast instance variables in Ruby and JavaScript
+- Distinguish local, instance, or class variables
 - Examine interaction with objects through methods
 - Explain whether given data is best-suited to having its accessibility defined by `attr_accessor`, `attr_reader`, `attr_writer`, or none of the above
-- Properly define instance and class variables
-- List two ways of defining class methods
 
 ## Framing: What is OOP? (20 minutes / 0:20)
 
@@ -25,69 +21,48 @@ Large applications written in an imperative style become hard to reason about.
 To consider the current state of the application, a developer needs to consider all of code that had been run so far.
 This process becomes increasingly difficult as the application grows.
 
-Object Oriented Programming attempts to solve this by organizing applications descrete units called **objects**.
+Object oriented programming attempts to solve this by organizing applications discrete units called **objects**.
 An object keeps any state or data relevant to itself internally.
 We almost always have many **instances** of a type of object.
 We define the procedures (or behavior) for initializing, modifying, or acting on an objects' internal state using **methods**.
 Because these procedures will be the same across all instances of a type of object, we define a single **class** with all of this behavior described in one place.
 We then use that class to instantiate as many instances (objects) of the class as we need.
 
-Object oriented programming gives use three major benifits:
-- **Encapsulation**: The complexity of our objects is hidden and a user can interact with well defined set of methods. We can redefine internal behavior without changing the external - a huge benifit for refactoring.
+Object oriented programming gives use three major benefits:
+- **Encapsulation**: The complexity of our objects is hidden and a user can interact with well defined set of methods. We can redefine internal behavior without changing the external - a huge benefit for refactoring.
 - **Modularity**: Because the interface (set of methods) for an object is well defined, it is easy to exchange one object for one another and reorganize objects without breaking them.
-- **Inheritence**: As we saw in JavaScript and will soon explore in Ruby, Object Oriented design lets cetrain classes **inherit** from, or borrow the behavior of another, more general class. The inheriting class can add and overwrite inheritied methods.
+- **Inheritance**: As we saw in JavaScript and will soon explore in Ruby, Object Oriented design lets certain classes **inherit** from, or borrow the behavior of another, more general class. The inheriting class can add and overwrite inherited methods.
 
 You can think of an object as a little machine: it has displays you can read and buttons you can push.
 When you write an object-oriented application, you are modeling the entire program as the interactions of these machines.
 
-The first step of this process is called **domain modeling** -- identifying the types of objects that are required to model our application and defining them as classes.
-
-This is an iterative process -- it is crucial to have a plan but persuit of a perfect plan will stop you from ever getting started.
-You can always come back and make changes to your domain model
-
-## Domain Modeling (10 minutes / 0:30)
-
-Let's practice domain modeling in a couple of familiar domains:
-
-#### Example: Monopoly
-
-> "Monopoly is a game where players try to accumulate wealth through property ownership and money"
-
-- Game
-- Board
-- Players
-- Properties
-
-#### Example: Facebook
-
-> "Facebook is an application where users can post statuses and add friends."
-
-- Users
-- Statuses
-- Friends
-
-Breaking your ideas down gives you a starting place for what those objects may be.
-
-Spend three minutes working with a partner to come up with at least three types of objects that you might define when creating the following examples.
-
-  1. Amazon
-  2. A Homework Grading App
-  3. An Attendance Taking App
-  4. Lyft
-
-> A helpful approach might be to take the "nouns" involved in the application and say they are objects.
+Parts of this class are adapted from Dr. Ana Bell's [Introduction to Programming in Python class at MIT](https://youtu.be/-DP1i2ZU9gk).
 
 ## Ruby Classes (15 minutes / 0:45)
 
-The distinction between **classes** and **instances** may seem foreign and technical but in reality this is very similar to how we think about the real world.
+The distinction between **classes** and **instances** may seem foreign and technical but, in reality, it is very similar to how we think about the real world.
 
 I can say "imagine a car" and we have no problem doing so.
 
-I can also point at something, ask "is that a car?" and get near universally consitent answers.
+I can also point at something, ask "is that a car?" and get near universally consistent answers.
+
+We can even look at a blueprint for the car and it will have a description, a basic drawing, and technical specifics about the car it represents.
+
+![Car Blueprint](img/blueprint.png)
 
 The general idea of the "car" is the class. Each of us has a mental model of what a car is: it has four wheels, runs on gas, has a steering wheel that allows us to drive it, etc.
 
-The tangible metal machine is the instance.
+The tangible metal machine is the instance, and we can have lots of those cars that follow the same blueprint.
+
+![Cars](img/cars.jpg)
+
+There are two different aspects of our data that we want our classes to represent. The first are the data properties, or **attributes** that make up our car. Some examples of these are its length, color, height, number of doors, its engine type etc. There will also be actions associated with it, which we will call **methods**. Some examples of these actions are driving the car, shutting its doors, and honking its horn. 
+
+It turns out that this isn't the first time we've seen objects in Ruby -- every data type in Ruby is a class. If we create an array in our `pry` console, we can see that there are methods we can run on it, and we can access its data at each index.
+
+If you are interested in seeing more about this, you can access the `.class` method on any object in Ruby.
+
+Let's now transition into writing our own classes.
 
 Let's define a `User` class. We'll be using `binding.pry` to test our code.
 
@@ -118,8 +93,8 @@ class User
 end
 
 me = User.new
-me.set_name_to("John")
-me.greet # prints: Hi! My name is John!
+me.set_name_to("Ali")
+me.greet # prints: Hi! My name is Ali!
 
 binding.pry
 
@@ -142,8 +117,8 @@ class User {
 }
 
 const me = new User()
-me.setNameTo('John')
-me.greet() // prints: Hi! My name is John!
+me.setNameTo('Ali')
+me.greet() // prints: Hi! My name is Ali!
 ```
 
 These two snippets are very similar.
@@ -248,10 +223,6 @@ class User
   end
 
 end
-
-binding.pry
-
-puts "end of file"
 ```
 
 ```ruby
@@ -269,7 +240,7 @@ puts madhatter
 
 <details>
   <summary>What can we conclude about the relationship of `def initialize` and `.new`? (Hint: it serves the same purpose as Javascript's constructor function)</summary>
-- When the class method `.new` is called, a new object is instantiated and the instance method `initialize` is called with the arguemnts given to `.new`
+- When the class method `.new` is called, a new object is instantiated and the instance method `initialize` is called with the arguments given to `.new`
 - Use `.new` to create a new object.
 - `initialize` is called automatically if defined in a class.
 - `.new` is a method of the class.
@@ -319,12 +290,10 @@ Specifically, you may have seen that in Ruby, normal variables are available onl
 This is because Ruby is intended to always be written in an object oriented style.
 Instead of having access to data defined previously in the code (called lexical scope), Ruby gives you access to internal data of the object a method is called on.
 
-To recap we have:
-
 - **Global Variables**: start with `$` (`$my_global_var`) and is available anywhere in the Ruby app. Not very common.
 - **Local Variables**: starts with any letter (`my_local_var`) and is available only in the method in which it is defined. Very common.
-- **Instance Variables**: starst with `@` (`@my_instance_var`) and is available to any method called on the insance. Very common
-- **Class Variables**: starts with `@@` (`@@my_class_var`) and is available to all instances of a class. Not very common. (we'll look at these in more detail below)
+- **Instance Variables**: starts with `@` (`@my_instance_var`) and is available to any method called on the instance. Very common.
+- **Class Variables**: starts with `@@` (`@@my_class_var`) and is available to all instances of a class. Not very common (we'll look at these in more detail later on).
 
 
 ```ruby
@@ -368,7 +337,7 @@ class User {
 let harry = new User('Harry', 'Potter')
 ```
 
-With our JS instance, we can call `harry.fullName()` and get back the concatinated full name.
+With our JS instance, we can call `harry.fullName()` and get back the concatenated full name.
 
 We can also access the properties on `harry` using dot notation: `harry.firstName` and `harry.lastName`
 
@@ -416,7 +385,7 @@ puts harry.get_firstname
 # "Ginny"
 ```
 
-By defining a getter method with the same name as the property being retreived, we can make our initial attempt at reading the variable (`harry.firstname`) work:
+By defining a getter method with the same name as the property being retrieved, we can make our initial attempt at reading the variable (`harry.firstname`) work:
 
 ```ruby
 class User
@@ -447,13 +416,13 @@ puts harry.firstname
 # => "Harry"
 ```
 
-A nice bit of Ruby syntactic sugar lets us also write setter methods that look like assignment.
+A nice bit of Ruby syntactical sugar lets us also write setter methods that look like assignment.
 
 Recall the error we saw after trying `harry.firstname = 'Ginny'`. It was `undefined method 'firstname='`
 
 Ruby will let us define a method ending in an `=` and when we call it, have a space between the last letter in the method name and the `=`.
 
-The important thing here is to note taht while this looks like an assignment, it is not, it is a method call.
+The important thing here is to note that while this looks like an assignment, it is not, it is a method call.
 
 ```ruby
 class User
@@ -489,7 +458,7 @@ This is such a common pattern that it is built into Ruby in **accessors**.
 
 The three accessors are `attr_reader`, `attr_writer`, and `attr_accessor`.
 
-They take symbols as arguments and will create (respectively) **getter**, **setter**, or both methods for insance variables.
+They take symbols as arguments and will create (respectively) **getter**, **setter**, or both methods for instance variables.
 
 The following snippets replace the manually defined getter and setter with the accessors
 
@@ -636,7 +605,7 @@ puts harry.lastname
 ## You Do: Monkies! (20 minutes / 2:00)
 
 For the next exercise, clone down the repo linked below:
-https://github.com/ga-wdi-exercises/oop_monkey
+https://git.generalassemb.ly/ga-wdi-exercises/oop_monkey
 
 -------
 
@@ -908,7 +877,7 @@ consistency of their data.
 
 Consider the bank account example... I might define a bank account object
 such that you can't directly change it's balance. Instead, you have to use the
-`withdrawl` and `deposit` methods. Those methods are the *interface* to the
+`withdraw` and `deposit` methods. Those methods are the *interface* to the
 account, and they can enforce rules for consistency, such as "balance can't be
 less than zero".
 
@@ -922,15 +891,15 @@ should not impact (cause bugs) in other areas of our programs.
 
 Clone this exercise and follow the instructions in the readme.
 
-**[Scrabble Word Scorer](https://github.com/ga-dc/scrabbler)**
+**[Scrabble Word Scorer](https://git.generalassemb.ly/ga-wdi-exercises/scrabbler)**
 
 ## Resources
 
 - [Variables cheat sheet](variables.md)
 - Other exercises
-  - [Monkeys](https://github.com/ga-wdi-exercises/oop_monkey)
-  - [Application Config](https://github.com/ga-wdi-exercises/ruby_application_configuration)
-  - [Superheroes](https://github.com/ga-wdi-exercises/superheros)
+  - [Monkeys](https://git.generalassemb.ly/ga-wdi-exercises/oop_monkey)
+  - [Application Config](https://git.generalassemb.ly/ga-wdi-exercises/ruby_application_configuration)
+  - [Superheroes](https://git.generalassemb.ly/ga-wdi-exercises/superheros)
 - Screencasts
   - WDI8, Robin
     - [Part 1](https://www.youtube.com/watch?v=-pAFSheGDr0)
