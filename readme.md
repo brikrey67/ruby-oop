@@ -210,7 +210,7 @@ class User
     puts "I'm a new User"
   end
 
-  def set_name_to(some_string)
+  def set_name(some_string)
     @name = some_string
   end
 
