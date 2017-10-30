@@ -29,7 +29,7 @@ Because these procedures will be the same across all instances of a type of obje
 We then use that class to instantiate as many instances (objects) of the class as we need.
 
 Object oriented programming gives use three major benefits:
-- **Encapsulation**: The complexity of our objects is hidden and a user can interact with well defined set of methods. We can redefine internal behavior without changing the external - a huge benefit for refactoring.
+- **Encapsulation**: The complexity of our objects is hidden and a user can interact with a well defined set of methods. We can redefine internal behavior without changing the external - a huge benefit for refactoring.
 - **Modularity**: Because the interface (set of methods) for an object is well defined, it is easy to exchange one object for one another and reorganize objects without breaking them.
 - **Inheritance**: As we saw in JavaScript and will soon explore in Ruby, Object Oriented design lets certain classes **inherit** from, or borrow the behavior of another, more general class. The inheriting class can add and overwrite inherited methods.
 
@@ -56,7 +56,7 @@ The tangible metal machine is the instance, and we can have lots of those cars t
 
 ![Cars](img/cars.jpg)
 
-There are two different aspects of our data that we want our classes to represent. The first are the data properties, or **attributes** that make up our car. Some examples of these are its length, color, height, number of doors, its engine type etc. There will also be actions associated with it, which we will call **methods**. Some examples of these actions are driving the car, shutting its doors, and honking its horn. 
+There are two different aspects of our data that we want our classes to represent. The first are the data properties, or **attributes** that make up our car. Some examples of these are its length, color, height, number of doors, its engine type etc. There will also be actions associated with it, which we will call **methods**. Some examples of these actions are driving the car, shutting its doors, and honking its horn.
 
 It turns out that this isn't the first time we've seen objects in Ruby -- every data type in Ruby is a class. If we create an array in our `pry` console, we can see that there are methods we can run on it, and we can access its data at each index.
 
@@ -78,7 +78,7 @@ require "pry"
 
 class User
 
-  def set_name_to(some_string)
+  def set_name(some_string)
     @name = some_string
   end
 
@@ -93,8 +93,8 @@ class User
 end
 
 me = User.new
-me.set_name_to("Ali")
-me.greet # prints: Hi! My name is Ali!
+me.set_name("Perry")
+me.greet # prints: Hi! My name is Perry!
 
 binding.pry
 
@@ -105,7 +105,7 @@ In JavaScript, we could write this class:
 
 ```js
 class User {
-  setNameTo (name) {
+  setName (name) {
     this.name = name
   }
   getName () {
@@ -117,27 +117,27 @@ class User {
 }
 
 const me = new User()
-me.setNameTo('Ali')
-me.greet() // prints: Hi! My name is Ali!
+me.setName('Perry')
+me.greet() // prints: Hi! My name is Perry!
 ```
 
 These two snippets are very similar.
 What differs between the two?
 
 Notice the `@` that starts every **instance variable**.
-Instance variables are like properties of JS objects - the objects internal data.
-The main difference is that in Ruby's instance variables can only be accessed/changed by methods of that object.
+Instance variables are like properties of JS objects - the objects' internal data.
+The main difference is that in Ruby, instance variables can only be accessed/changed by methods of that object.
 More on that when we discuss getters and setters below.
 
 By instantiating multiple `User` objects, we can see that all of the methods defined for the class can be called on any instance of `User` but the specific behavior of the function can be dependent on or has effect on the object's instance variables.
 
 ```ruby
 alice = User.new
-alice.set_name_to("alice")
+alice.set_name("Alice")
 puts alice.get_name
 
 madhatter = User.new
-madhatter.set_name_to("Mad Hatter")
+madhatter.set_name("Mad Hatter")
 puts madhatter.get_name
 
 alice.greet
