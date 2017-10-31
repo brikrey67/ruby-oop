@@ -6,18 +6,18 @@
 - Describe the relationship between a class and an instance
 - Define a Ruby Class and instantiate it
 - Explain the relationship between `.new()` and `def initialize()`
-- Distinguish local, instance, or class variables
+- Distinguish local, instance, and class variables
 - Examine interactions with objects through methods
-- Determine whether given data is best-suited for having its accessibility defined by `attr_accessor`, `attr_reader`, `attr_writer`, or none of the above
+- Understand the difference between `attr_accessor`, `attr_reader`, `attr_writer`, and know when to use each one.  
 
 ## Framing: What is OOP? (20 minutes / 0:20)
 
 The earliest computer programs were written in an **imperative** style.
 The programs were series of instructions that changed a program's **state**.
 Data was loaded, the program ran and manipulated the data, and some output was produced.
-The first JavaScript we wrote was **imperative** as is the Ruby we've written so far.
+The first JavaScript and Ruby programs we wrote were **imperative**.  
 
-Large applications written in an imperative style can become confusing.
+Large applications written in imperative style can become confusing.
 To consider the current state of the application, a developer needs to consider all of code that had been run so far.
 This process becomes increasingly difficult as the application grows.
 
