@@ -10,7 +10,7 @@
 - Examine interactions with objects through methods
 - Understand the difference between `attr_accessor`, `attr_reader`, `attr_writer`, and know when to use each one.  
 
-## Framing: What is OOP? (20 minutes / 0:20)
+## Framing: What is OOP? (15 minutes / 0:15)
 
 The earliest computer programs were written in an **imperative** style.
 The programs were series of instructions that changed a program's **state**.
@@ -25,7 +25,7 @@ Object oriented programming attempts to solve this by organizing applications in
 An object keeps any state or data relevant to itself internally.
 We almost always have many **instances** of a type of object.
 We use **methods** to initialize, modify, or act on an objects' internal state.
-Because these **methods** will be the same across all instances of a type of object, we define a single **class** with all of this behavior described in one place.
+Because these methods will be the same across all instances of a type of object, we define a single **class** with all of this behavior described in one place.
 We then use that class to instantiate as many instances (objects) of the class as we need.
 
 Object oriented programming gives use three major benefits:
@@ -38,7 +38,7 @@ When you write an object-oriented application, you are modeling the entire progr
 
 Parts of this class are adapted from Dr. Ana Bell's [Introduction to Programming in Python class at MIT](https://youtu.be/-DP1i2ZU9gk).
 
-## Ruby Classes (15 minutes / 0:45)
+## Ruby Classes (20 minutes / 0:35)
 
 The distinction between **classes** and **instances** may seem foreign and technical but, in reality, it is very similar to how we think about the real world.
 
@@ -50,7 +50,7 @@ We can even look at a blueprint for the car and it will have a description, a ba
 
 ![Car Blueprint](img/blueprint.png)
 
-The general idea of the "car" is the class. Each of us has a mental model of what a car is: it has four wheels, runs on gas, has a steering wheel that allows us to drive it, etc.
+The *general* idea of the "car" is the class. Each of us has a mental model of what a car is: it has four wheels, runs on gas, has a steering wheel that allows us to drive it, etc.
 
 The tangible metal machine is the instance, and we can have lots of those cars that follow the same blueprint.
 
