@@ -7,8 +7,8 @@
 - Define a Ruby Class and instantiate it
 - Explain the relationship between `.new()` and `def initialize()`
 - Distinguish local, instance, or class variables
-- Examine interaction with objects through methods
-- Explain whether given data is best-suited to having its accessibility defined by `attr_accessor`, `attr_reader`, `attr_writer`, or none of the above
+- Examine interactions with objects through methods
+- Determine whether given data is best-suited for having its accessibility defined by `attr_accessor`, `attr_reader`, `attr_writer`, or none of the above
 
 ## Framing: What is OOP? (20 minutes / 0:20)
 
@@ -17,14 +17,14 @@ The programs were series of instructions that changed a program's **state**.
 Data was loaded, the program ran and manipulated the data, and some output was produced.
 The first JavaScript we wrote was **imperative** as is the Ruby we've written so far.
 
-Large applications written in an imperative style become hard to reason about.
+Large applications written in an imperative style can become confusing.
 To consider the current state of the application, a developer needs to consider all of code that had been run so far.
 This process becomes increasingly difficult as the application grows.
 
-Object oriented programming attempts to solve this by organizing applications discrete units called **objects**.
+Object oriented programming attempts to solve this by organizing applications into discrete units called **objects**.
 An object keeps any state or data relevant to itself internally.
 We almost always have many **instances** of a type of object.
-We define the procedures (or behavior) for initializing, modifying, or acting on an objects' internal state using **methods**.
+We define the procedures for initializing, modifying, or acting on an objects' internal state using **methods**.
 Because these procedures will be the same across all instances of a type of object, we define a single **class** with all of this behavior described in one place.
 We then use that class to instantiate as many instances (objects) of the class as we need.
 
@@ -658,7 +658,7 @@ A variable name beginning with `@@` is a **class variable**. Every instance of a
 
 ### Class Attributes and Methods Together (10 minutes / 2:15)
 
-A method name beginning with the class name is a **class method**. It is attached to the class itself, rather than to instances. There are also methods you call on `User` itself. So far we've only seen `.new`.It would make more sense if, in order to retrieve the total number of users, we ran `User.count` instead of `harry.count`...
+A method name beginning with the class name is a **class method**. It is attached to the class itself, rather than to instances. There are also methods you call on `User` itself. So far we've only seen `.new`. It would make more sense if, in order to retrieve the total number of users, we ran `User.count` instead of `harry.count`...
 
 ```ruby
 class User
