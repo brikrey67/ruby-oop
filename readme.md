@@ -24,8 +24,8 @@ This process becomes increasingly difficult as the application grows.
 Object oriented programming attempts to solve this by organizing applications into discrete units called **objects**.
 An object keeps any state or data relevant to itself internally.
 We almost always have many **instances** of a type of object.
-We define the procedures for initializing, modifying, or acting on an objects' internal state using **methods**.
-Because these procedures will be the same across all instances of a type of object, we define a single **class** with all of this behavior described in one place.
+We use **methods** to initialize, modify, or act on an objects' internal state.
+Because these **methods** will be the same across all instances of a type of object, we define a single **class** with all of this behavior described in one place.
 We then use that class to instantiate as many instances (objects) of the class as we need.
 
 Object oriented programming gives use three major benefits:
