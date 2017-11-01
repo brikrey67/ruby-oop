@@ -21,6 +21,8 @@ Large applications written in imperative style can become confusing.
 To consider the current state of the application, a developer needs to consider all of code that had been run so far.
 This process becomes increasingly difficult as the application grows.
 
+[Good article explaining the difference between imperative and declarative programming](https://tylermcginnis.com/imperative-vs-declarative-programming/)
+
 Object oriented programming attempts to solve this by organizing applications into discrete units called **objects**.
 An object keeps any state or data relevant to itself internally.
 We almost always have many **instances** of a type of object.
