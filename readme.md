@@ -10,7 +10,7 @@
 - Examine interactions with objects through methods
 - Understand the difference between `attr_accessor`, `attr_reader`, `attr_writer`, and know when to use each one.  
 
-## Framing: What is OOP? (15 minutes / 0:15)
+## Framing: What is OOP? (15 minutes / 10:15)
 
 The earliest computer programs were written in an **imperative** style.
 The programs were series of instructions that changed a program's **state**.
@@ -38,7 +38,7 @@ When you write an object-oriented application, you are modeling the entire progr
 
 Parts of this class are adapted from Dr. Ana Bell's [Introduction to Programming in Python class at MIT](https://youtu.be/-DP1i2ZU9gk).
 
-## Ruby Classes (20 minutes / 0:35)
+## Ruby Classes (20 minutes / 10:35)
 
 The distinction between **classes** and **instances** may seem foreign and technical but, in reality, it is very similar to how we think about the real world.
 
@@ -190,7 +190,7 @@ Thus, it would be make sense to call `new` a(n)...
 
 </details>
 
-## Initializing Users (15 minutes / 1:00)
+## Initializing Users (15 minutes / 10:50)
 
 <details>
   <summary><strong>What was the purpose of a constructor function in Javascript classes?</strong></summary>
@@ -275,7 +275,7 @@ harry.full_name
 # => "Harry Potter"
 ```
 
-### Ruby Variables (10 minutes / 1:10)
+### Ruby Variables (10 minutes / 11:00)
 
 In our exploration of Ruby so far, you may have notice that scope works differently than in JavaScript.
 Specifically, you may have seen that in Ruby, normal variables are available only inside the method in which they were created.
@@ -288,8 +288,9 @@ Instead of having access to data defined previously in the code (called lexical 
 - **Instance Variables**: starts with `@` (`@my_instance_var`) and is available to any method called on the instance. Very common.
 - **Class Variables**: starts with `@@` (`@@my_class_var`) and is available to all instances of a class. Not very common (we'll look at these in more detail later on).
 
+## Break (10 minutes / 11:10)
 
-### Getting and Setting Instance Variables (20 minutes / 1:30)
+### Getting and Setting Instance Variables (20 minutes / 11:30)
 
 Let's update our JavaScript user class with a constructor to match our initialize method:
 
@@ -354,6 +355,7 @@ harry.set_firstname("Ginny")
 puts harry.get_firstname
 # "Ginny"
 ```
+Though Javascript perhaps made it too easy to access and change our properties, the dot syntax (`object.property`) was pretty convenient.
 
 By defining a getter method with the same name as the property being retrieved, we can make our initial attempt at reading the variable (`harry.firstname`) work:
 
@@ -569,17 +571,17 @@ puts harry.lastname
 `attr_reader` makes an attribute readable, `attr_writer` makes an attribute writeable. `attr_accessor` makes an attribute both readable **AND** writeable.
 
 
-## Break (10 minutes / 1:40)
-
-
-## You Do: Monkies! (20 minutes / 2:00)
+## You Do: Monkies! (20 minutes / 11:50)
 
 For the next exercise, clone down the repo linked below:
 https://git.generalassemb.ly/ga-wdi-exercises/oop_monkey
 
+
+## Break (10 minutes / 12:00)
+
 -------
 
-## Class Attributes / Variables (5 minutes / 2:05)
+## Class Attributes / Variables (5 minutes / 12:05)
 
 Let's come up with a way of keeping track of how many users have been created total...
 
@@ -626,7 +628,7 @@ But there's something weird going on here: note that we aren't counting the numb
 
 A variable name beginning with `@@` is a **class variable**. Every instance of a class has the same value for this variable. It cannot be accessed with `attr_accessor`. You have to actually create a method to access it.
 
-### Class Attributes and Methods Together (10 minutes / 2:15)
+### Class Attributes and Methods Together (10 minutes / 12:15)
 
 A method name beginning with the class name is a **class method**. It is attached to the class itself, rather than to instances. There are also methods you call on `User` itself. So far we've only seen `.new`. It would make more sense if, in order to retrieve the total number of users, we ran `User.count` instead of `harry.count`...
 
@@ -661,7 +663,7 @@ User.count
 # => 1
 ```
 
-## Self (10 minutes / 2:25)
+## Self (10 minutes / 12:25)
 
 `self` is a special variable that contains the current instance of an object (like `this` in Javascript). It's how the object refers to it*self*.
 
@@ -704,7 +706,14 @@ User.all
 # => [#<User @firstname="Draco">, #<User @firstname="Luna">, #<User @firstname="Bellatrix">]
 ```
 
-## You Do: Orange Tree
+## Review Questions (5 minutes / 2:30)
+
+- What is the relationship between a class and an instance?
+- What is special about the method `def initialize`?
+- Explain the difference between local, instance, and class variables
+- What is the difference between `attr_accessor`, `attr_reader`, and `attr_writer`?
+
+## You Do: Orange Tree (Rest of Class / 12:30)
 
 > From Chris Pine's "Learn to Program - Second Edition": p 112, section 13.6
 
@@ -743,15 +752,6 @@ Create an `OrangeTreeOrchard` class that manages multiple `OrangeTrees`. It can.
 - Pick and count all the fruit
 - Calculate average height and fruit of all orange trees
 
-## Closing / Questions
-
-## Sample Questions
-
-- Create a Ruby class for a student, initialized with a name and an age.
-  - Write a getter for name and age, and a setter for name only
-  - Create a new student and demonstrate using all the methods
-- Explain the difference between local and instance variables
-
 ## Glossary
 
 * **Class**: a blueprint for objects
@@ -766,7 +766,7 @@ Create an `OrangeTreeOrchard` class that manages multiple `OrangeTrees`. It can.
 
 ------
 
-## Bonus: Public and Private Methods (5 minutes / 1:50)
+## Bonus: Public and Private Methods
 
 ### You Do
 
