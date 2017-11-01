@@ -249,8 +249,7 @@ puts madhatter
 
 </details>
 
-
-
+---
 `initialize` methods are often used to set values for instance variables:
 
 ```ruby
@@ -289,29 +288,6 @@ Instead of having access to data defined previously in the code (called lexical 
 - **Instance Variables**: starts with `@` (`@my_instance_var`) and is available to any method called on the instance. Very common.
 - **Class Variables**: starts with `@@` (`@@my_class_var`) and is available to all instances of a class. Not very common (we'll look at these in more detail later on).
 
-
-```ruby
-class User
-
-  def initialize(firstname, lastname)
-    @firstname = firstname
-    @lastname = lastname
-  end
-
-  def full_name
-    return "#{@firstname.capitalize} #{@lastname.capitalize}"
-  end
-
-end
-```
-
-```ruby
-# pry
-harry = User.new("Harry", "Potter")
-# => #<User:0x007faf3903f670 @firstname="Harry", @lastname="Potter">
-harry.full_name
-# => "Harry Potter"
-```
 
 ### Getting and Setting Instance Variables (20 minutes / 1:30)
 
