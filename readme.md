@@ -126,10 +126,10 @@ What differs between the two?
 
 Notice the `@` that starts every **instance variable**.
 Instance variables are like properties of JS objects - the objects' internal data.
-The main difference is that in Ruby, instance variables can only be accessed/changed by methods of that object.
+The main difference is that in Ruby, *instance variables can only be accessed/changed by methods* of that object.
 More on that when we discuss getters and setters below.
 
-By instantiating multiple `User` objects, we can see that all of the methods defined for the class can be called on any instance of `User` but the specific behavior of the function can be dependent on or has effect on the object's instance variables.
+By instantiating multiple `User` objects, we can see that all of the methods defined for the class can be called on any instance of `User`.
 
 ```ruby
 alice = User.new
@@ -227,10 +227,8 @@ end
 
 ```ruby
 alice = User.new
-alice.greet
 
 madhatter = User.new
-madhatter.greet
 
 
 puts alice
@@ -241,11 +239,6 @@ puts madhatter
 <details>
   <summary>What can we conclude about the relationship of `def initialize` and `.new`? (Hint: it serves the same purpose as Javascript's constructor function)</summary>
 - When the class method `.new` is called, a new object is instantiated and the instance method `initialize` is called with the arguments given to `.new`
-- Use `.new` to create a new object.
-- `initialize` is called automatically if defined in a class.
-- `.new` is a method of the class.
-- `initialize` is a method of the instance.
-- Call to `new` must come first; until you call `new` there is no instance to call `initialize` on.
 </details>
 
 
@@ -255,6 +248,7 @@ puts madhatter
    `initialize` can only be called by the `.new` class method (i.e. it only runs once - when the object is initially created).
 
 </details>
+
 
 
 `initialize` methods are often used to set values for instance variables:
