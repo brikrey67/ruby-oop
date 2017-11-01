@@ -6,30 +6,30 @@
 - Describe the relationship between a class and an instance
 - Define a Ruby Class and instantiate it
 - Explain the relationship between `.new()` and `def initialize()`
-- Distinguish local, instance, or class variables
-- Examine interaction with objects through methods
-- Explain whether given data is best-suited to having its accessibility defined by `attr_accessor`, `attr_reader`, `attr_writer`, or none of the above
+- Distinguish local, instance, and class variables
+- Examine interactions with objects through methods
+- Understand the difference between `attr_accessor`, `attr_reader`, `attr_writer`, and know when to use each one.  
 
-## Framing: What is OOP? (20 minutes / 0:20)
+## Framing: What is OOP? (15 minutes / 10:15)
 
 The earliest computer programs were written in an **imperative** style.
 The programs were series of instructions that changed a program's **state**.
 Data was loaded, the program ran and manipulated the data, and some output was produced.
-The first JavaScript we wrote was **imperative** as is the Ruby we've written so far.
+The first JavaScript and Ruby programs we wrote were **imperative**.  
 
-Large applications written in an imperative style become hard to reason about.
+Large applications written in imperative style can become confusing.
 To consider the current state of the application, a developer needs to consider all of code that had been run so far.
 This process becomes increasingly difficult as the application grows.
 
-Object oriented programming attempts to solve this by organizing applications discrete units called **objects**.
+Object oriented programming attempts to solve this by organizing applications into discrete units called **objects**.
 An object keeps any state or data relevant to itself internally.
 We almost always have many **instances** of a type of object.
-We define the procedures (or behavior) for initializing, modifying, or acting on an objects' internal state using **methods**.
-Because these procedures will be the same across all instances of a type of object, we define a single **class** with all of this behavior described in one place.
+We use **methods** to initialize, modify, or act on an objects' internal state.
+Because these methods will be the same across all instances of a type of object, we define a single **class** with all of this behavior described in one place.
 We then use that class to instantiate as many instances (objects) of the class as we need.
 
 Object oriented programming gives use three major benefits:
-- **Encapsulation**: The complexity of our objects is hidden and a user can interact with well defined set of methods. We can redefine internal behavior without changing the external - a huge benefit for refactoring.
+- **Encapsulation**: The complexity of our objects is hidden and a user can interact with a well defined set of methods. We can redefine internal behavior without changing the external - a huge benefit for refactoring.
 - **Modularity**: Because the interface (set of methods) for an object is well defined, it is easy to exchange one object for one another and reorganize objects without breaking them.
 - **Inheritance**: As we saw in JavaScript and will soon explore in Ruby, Object Oriented design lets certain classes **inherit** from, or borrow the behavior of another, more general class. The inheriting class can add and overwrite inherited methods.
 
@@ -38,7 +38,7 @@ When you write an object-oriented application, you are modeling the entire progr
 
 Parts of this class are adapted from Dr. Ana Bell's [Introduction to Programming in Python class at MIT](https://youtu.be/-DP1i2ZU9gk).
 
-## Ruby Classes (15 minutes / 0:45)
+## Ruby Classes (20 minutes / 10:35)
 
 The distinction between **classes** and **instances** may seem foreign and technical but, in reality, it is very similar to how we think about the real world.
 
@@ -50,13 +50,13 @@ We can even look at a blueprint for the car and it will have a description, a ba
 
 ![Car Blueprint](img/blueprint.png)
 
-The general idea of the "car" is the class. Each of us has a mental model of what a car is: it has four wheels, runs on gas, has a steering wheel that allows us to drive it, etc.
+The *general* idea of the "car" is the class. Each of us has a mental model of what a car is: it has four wheels, runs on gas, has a steering wheel that allows us to drive it, etc.
 
 The tangible metal machine is the instance, and we can have lots of those cars that follow the same blueprint.
 
 ![Cars](img/cars.jpg)
 
-There are two different aspects of our data that we want our classes to represent. The first are the data properties, or **attributes** that make up our car. Some examples of these are its length, color, height, number of doors, its engine type etc. There will also be actions associated with it, which we will call **methods**. Some examples of these actions are driving the car, shutting its doors, and honking its horn. 
+There are two different aspects of our data that we want our classes to represent. The first are the data properties, or **attributes** that make up our car. Some examples of these are its length, color, height, number of doors, its engine type etc. There will also be actions associated with it, which we will call **methods**. Some examples of these actions are driving the car, shutting its doors, and honking its horn.
 
 It turns out that this isn't the first time we've seen objects in Ruby -- every data type in Ruby is a class. If we create an array in our `pry` console, we can see that there are methods we can run on it, and we can access its data at each index.
 
@@ -78,7 +78,7 @@ require "pry"
 
 class User
 
-  def set_name_to(some_string)
+  def set_name(some_string)
     @name = some_string
   end
 
@@ -93,8 +93,8 @@ class User
 end
 
 me = User.new
-me.set_name_to("Ali")
-me.greet # prints: Hi! My name is Ali!
+me.set_name("Perry")
+me.greet # prints: Hi! My name is Perry!
 
 binding.pry
 
@@ -105,7 +105,7 @@ In JavaScript, we could write this class:
 
 ```js
 class User {
-  setNameTo (name) {
+  setName (name) {
     this.name = name
   }
   getName () {
@@ -117,27 +117,27 @@ class User {
 }
 
 const me = new User()
-me.setNameTo('Ali')
-me.greet() // prints: Hi! My name is Ali!
+me.setName('Perry')
+me.greet() // prints: Hi! My name is Perry!
 ```
 
 These two snippets are very similar.
 What differs between the two?
 
 Notice the `@` that starts every **instance variable**.
-Instance variables are like properties of JS objects - the objects internal data.
-The main difference is that in Ruby's instance variables can only be accessed/changed by methods of that object.
+Instance variables are like properties of JS objects - the objects' internal data.
+The main difference is that in Ruby, *instance variables can only be accessed/changed by methods* of that object.
 More on that when we discuss getters and setters below.
 
-By instantiating multiple `User` objects, we can see that all of the methods defined for the class can be called on any instance of `User` but the specific behavior of the function can be dependent on or has effect on the object's instance variables.
+By instantiating multiple `User` objects, we can see that all of the methods defined for the class can be called on any instance of `User`.
 
 ```ruby
 alice = User.new
-alice.set_name_to("alice")
+alice.set_name("Alice")
 puts alice.get_name
 
 madhatter = User.new
-madhatter.set_name_to("Mad Hatter")
+madhatter.set_name("Mad Hatter")
 puts madhatter.get_name
 
 alice.greet
@@ -190,7 +190,7 @@ Thus, it would be make sense to call `new` a(n)...
 
 </details>
 
-## Initializing Users (15 minutes / 1:00)
+## Initializing Users (15 minutes / 10:50)
 
 <details>
   <summary><strong>What was the purpose of a constructor function in Javascript classes?</strong></summary>
@@ -210,7 +210,7 @@ class User
     puts "I'm a new User"
   end
 
-  def set_name_to(some_string)
+  def set_name(some_string)
     @name = some_string
   end
 
@@ -227,10 +227,8 @@ end
 
 ```ruby
 alice = User.new
-alice.greet
 
 madhatter = User.new
-madhatter.greet
 
 
 puts alice
@@ -241,11 +239,6 @@ puts madhatter
 <details>
   <summary>What can we conclude about the relationship of `def initialize` and `.new`? (Hint: it serves the same purpose as Javascript's constructor function)</summary>
 - When the class method `.new` is called, a new object is instantiated and the instance method `initialize` is called with the arguments given to `.new`
-- Use `.new` to create a new object.
-- `initialize` is called automatically if defined in a class.
-- `.new` is a method of the class.
-- `initialize` is a method of the instance.
-- Call to `new` must come first; until you call `new` there is no instance to call `initialize` on.
 </details>
 
 
@@ -256,7 +249,7 @@ puts madhatter
 
 </details>
 
-
+---
 `initialize` methods are often used to set values for instance variables:
 
 ```ruby
@@ -282,7 +275,7 @@ harry.full_name
 # => "Harry Potter"
 ```
 
-### Ruby Variables (10 minutes / 1:10)
+### Ruby Variables (10 minutes / 11:00)
 
 In our exploration of Ruby so far, you may have notice that scope works differently than in JavaScript.
 Specifically, you may have seen that in Ruby, normal variables are available only inside the method in which they were created.
@@ -295,31 +288,9 @@ Instead of having access to data defined previously in the code (called lexical 
 - **Instance Variables**: starts with `@` (`@my_instance_var`) and is available to any method called on the instance. Very common.
 - **Class Variables**: starts with `@@` (`@@my_class_var`) and is available to all instances of a class. Not very common (we'll look at these in more detail later on).
 
+## Break (10 minutes / 11:10)
 
-```ruby
-class User
-
-  def initialize(firstname, lastname)
-    @firstname = firstname
-    @lastname = lastname
-  end
-
-  def full_name
-    return "#{@firstname.capitalize} #{@lastname.capitalize}"
-  end
-
-end
-```
-
-```ruby
-# pry
-harry = User.new("Harry", "Potter")
-# => #<User:0x007faf3903f670 @firstname="Harry", @lastname="Potter">
-harry.full_name
-# => "Harry Potter"
-```
-
-### Getting and Setting Instance Variables (20 minutes / 1:30)
+### Getting and Setting Instance Variables (20 minutes / 11:30)
 
 Let's update our JavaScript user class with a constructor to match our initialize method:
 
@@ -384,6 +355,7 @@ harry.set_firstname("Ginny")
 puts harry.get_firstname
 # "Ginny"
 ```
+Though Javascript perhaps made it too easy to access and change our properties, the dot syntax (`object.property`) was pretty convenient.
 
 By defining a getter method with the same name as the property being retrieved, we can make our initial attempt at reading the variable (`harry.firstname`) work:
 
@@ -599,17 +571,17 @@ puts harry.lastname
 `attr_reader` makes an attribute readable, `attr_writer` makes an attribute writeable. `attr_accessor` makes an attribute both readable **AND** writeable.
 
 
-## Break (10 minutes / 1:40)
-
-
-## You Do: Monkies! (20 minutes / 2:00)
+## You Do: Monkies! (20 minutes / 11:50)
 
 For the next exercise, clone down the repo linked below:
 https://git.generalassemb.ly/ga-wdi-exercises/oop_monkey
 
+
+## Break (10 minutes / 12:00)
+
 -------
 
-## Class Attributes / Variables (5 minutes / 2:05)
+## Class Attributes / Variables (5 minutes / 12:05)
 
 Let's come up with a way of keeping track of how many users have been created total...
 
@@ -656,9 +628,9 @@ But there's something weird going on here: note that we aren't counting the numb
 
 A variable name beginning with `@@` is a **class variable**. Every instance of a class has the same value for this variable. It cannot be accessed with `attr_accessor`. You have to actually create a method to access it.
 
-### Class Attributes and Methods Together (10 minutes / 2:15)
+### Class Attributes and Methods Together (10 minutes / 12:15)
 
-A method name beginning with the class name is a **class method**. It is attached to the class itself, rather than to instances. There are also methods you call on `User` itself. So far we've only seen `.new`.It would make more sense if, in order to retrieve the total number of users, we ran `User.count` instead of `harry.count`...
+A method name beginning with the class name is a **class method**. It is attached to the class itself, rather than to instances. There are also methods you call on `User` itself. So far we've only seen `.new`. It would make more sense if, in order to retrieve the total number of users, we ran `User.count` instead of `harry.count`...
 
 ```ruby
 class User
@@ -691,7 +663,7 @@ User.count
 # => 1
 ```
 
-## Self (10 minutes / 2:25)
+## Self (10 minutes / 12:25)
 
 `self` is a special variable that contains the current instance of an object (like `this` in Javascript). It's how the object refers to it*self*.
 
@@ -734,7 +706,14 @@ User.all
 # => [#<User @firstname="Draco">, #<User @firstname="Luna">, #<User @firstname="Bellatrix">]
 ```
 
-## You Do: Orange Tree
+## Review Questions (5 minutes / 12:30)
+
+- What is the relationship between a class and an instance?
+- What is special about the method `def initialize`?
+- Explain the difference between local, instance, and class variables
+- What is the difference between `attr_accessor`, `attr_reader`, and `attr_writer`?
+
+## You Do: Orange Tree (Rest of Class)
 
 > From Chris Pine's "Learn to Program - Second Edition": p 112, section 13.6
 
@@ -773,15 +752,6 @@ Create an `OrangeTreeOrchard` class that manages multiple `OrangeTrees`. It can.
 - Pick and count all the fruit
 - Calculate average height and fruit of all orange trees
 
-## Closing / Questions
-
-## Sample Questions
-
-- Create a Ruby class for a student, initialized with a name and an age.
-  - Write a getter for name and age, and a setter for name only
-  - Create a new student and demonstrate using all the methods
-- Explain the difference between local and instance variables
-
 ## Glossary
 
 * **Class**: a blueprint for objects
@@ -796,7 +766,7 @@ Create an `OrangeTreeOrchard` class that manages multiple `OrangeTrees`. It can.
 
 ------
 
-## Bonus: Public and Private Methods (5 minutes / 1:50)
+## Bonus: Public and Private Methods
 
 ### You Do
 
