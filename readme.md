@@ -706,14 +706,14 @@ User.all
 # => [#<User @firstname="Draco">, #<User @firstname="Luna">, #<User @firstname="Bellatrix">]
 ```
 
-## Review Questions (5 minutes / 2:30)
+## Review Questions (5 minutes / 12:30)
 
 - What is the relationship between a class and an instance?
 - What is special about the method `def initialize`?
 - Explain the difference between local, instance, and class variables
 - What is the difference between `attr_accessor`, `attr_reader`, and `attr_writer`?
 
-## You Do: Orange Tree (Rest of Class / 12:30)
+## You Do: Orange Tree (Rest of Class)
 
 > From Chris Pine's "Learn to Program - Second Edition": p 112, section 13.6
 
