@@ -38,7 +38,7 @@ Object oriented programming gives use three major benefits:
 You can think of an object as a little machine: it has displays you can read and buttons you can push.
 When you write an object-oriented application, you are modeling the entire program as the interactions of these machines.
 
-Parts of this class are adapted from Dr. Ana Bell's [Introduction to Programming in Python class at MIT](https://youtu.be/-DP1i2ZU9gk).
+Parts of this class is adapted from Dr. Ana Bell's [Introduction to Programming in Python class at MIT](https://youtu.be/-DP1i2ZU9gk).
 
 ## Ruby Classes (20 minutes / 10:35)
 
@@ -52,9 +52,9 @@ We can even look at a blueprint for the car and it will have a description, a ba
 
 ![Car Blueprint](img/blueprint.png)
 
-The *general* idea of the "car" is the class. Each of us has a mental model of what a car is: it has four wheels, runs on gas, has a steering wheel that allows us to drive it, etc.
+The *general* idea of the "car" is the **class**. Each of us has a mental model of what a car is: it has four wheels, runs on gas, has a steering wheel that allows us to drive it, etc.
 
-The tangible metal machine is the instance, and we can have lots of those cars that follow the same blueprint.
+The tangible metal machine is the **instance**, and we can have lots of those cars that follow the same blueprint.
 
 ![Cars](img/cars.jpg)
 
