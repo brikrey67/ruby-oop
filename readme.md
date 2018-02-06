@@ -578,8 +578,63 @@ puts harry.lastname
 For the next exercise, clone down the repo linked below:
 https://git.generalassemb.ly/ga-wdi-exercises/oop_monkey
 
-
 ## Break (10 minutes / 12:00)
+
+## Inheritance (5 minutes)
+
+Just like we get traits from our parents, we can use a feature called **inheritance** to create classes (children) that *inherit* properties and methods from a parent class.
+
+```rb
+class User
+  attr_accessor :firstname, :lastname
+  # attr_reader :firstname
+  # attr_writer :firstname
+
+  def initialize(firstname, lastname)
+    @firstname = firstname
+    @lastname = lastname
+  end
+
+  def say_name
+    return "#{@firstname.capitalize} #{@lastname.capitalize}"
+  end
+
+end
+
+# Inheritance is indicated using the `<` symbol after the child class' name.
+class SuperUser < Person
+  def say_name
+    puts "#{@name.upcase} IS A SUPERUSER!"
+  end
+end
+
+james = User.new("Max", "Power")
+ali = SuperUser.new("Ali", "Spittel")
+
+# Both `say_age` methods produce the same result because it was not overwritten in the `LoudPerson` class.
+ali.say_age
+# => "I am 10 years old."
+max.say_age
+# => "I am 20 years old."
+
+# The `say_name` methods produce different results because the original was overwritten in the `LoudPerson` class.
+max.say_name
+# => "Max Power"
+ali.say_name
+# => "ALI IS A SUPERUSER!"
+```
+
+## You Do: Codebar (25 minutes)
+
+> 20 minutes exercise. 5 minutes review.
+
+Clone down [this repo](https://git.generalassemb.ly/ga-wdi-exercises/codebar) and follow the instructions in the readme.
+
+> If you finish early, get started on the optional Shopping List exercise.
+
+## You Do: Shopping List (Optional)
+
+Clone down [this repo](https://git.generalassemb.ly/ga-wdi-exercises/shopping_list/) and follow the instructions in the readme.
 
 -------
 
