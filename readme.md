@@ -611,12 +611,6 @@ end
 james = User.new("Max", "Power")
 ali = SuperUser.new("Ali", "Spittel")
 
-# Both `say_age` methods produce the same result because it was not overwritten in the `LoudPerson` class.
-ali.say_age
-# => "I am 10 years old."
-max.say_age
-# => "I am 20 years old."
-
 # The `say_name` methods produce different results because the original was overwritten in the `LoudPerson` class.
 max.say_name
 # => "Max Power"
