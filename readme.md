@@ -583,7 +583,68 @@ https://git.generalassemb.ly/ga-wdi-exercises/oop_monkey
 
 -------
 
-## Class Attributes / Variables (5 minutes / 12:05)
+
+## Review Questions (5 minutes / 12:30)
+
+- What is the relationship between a class and an instance?
+- What is special about the method `def initialize`?
+- Explain the difference between local, instance, and class variables
+- What is the difference between `attr_accessor`, `attr_reader`, and `attr_writer`?
+
+## You Do: Orange Tree (Rest of Class)
+
+> From Chris Pine's "Learn to Program - Second Edition": p 112, section 13.6
+
+Make an OrangeTree class that has...
+
+- a `height` method that returns its height in feet
+  - it's initial value should be determined by some input
+  - hint: you don't necessarily have to define the method
+- a `one_year_passes` method that, when called, ages the tree one year. Start the age at `0`.
+
+> Test your code.
+
+- Each year the tree grows taller by one foot
+- After 50 years the tree should "die" (its height goes to 0)
+
+> Test your code.
+
+- After the first 5 years, the tree bears 20 oranges
+- You should be able to `count_the_oranges`, which returns the number of oranges on the tree
+
+> Test your code.
+
+- You should be able to `pick_an_orange`, which reduces the number of oranges by 1
+- Ensure that your tree cannot have negative oranges
+- Ensure that after each year your tree has 20 total oranges again
+
+> Test your code.
+
+- The number of oranges the tree bears each year is equal to 20 plus the age of the tree
+
+#### Bonus
+
+Create an `OrangeTreeOrchard` class that manages multiple `OrangeTrees`. It can...
+
+- Age all the trees by one year
+- Pick and count all the fruit
+- Calculate average height and fruit of all orange trees
+
+## Glossary
+
+* **Class**: a blueprint for objects
+* **Instance**: an object that is created using a class
+* **Instance Variable**: a property that is particular to an instance
+* **Class Variable:** a property that is accessible by all instances of a class
+* **Instance Method**: a method that can be called by an instance of a class (e.g., `sample_user.reset_password`)
+* **Class Method**: a method that can be called by a class (e.g., `User.list_user`)
+* **`initialize`**: a class method that, when triggered, creates an instance and assigns initial properties
+* **`.new`**: a class method that, when called, triggers its `initialize` method
+* **`attr_accessor`**: a setting that allows you to directly "get" or "set" an instance variable
+
+------
+
+## Bonus: Class Attributes / Variables
 
 Let's come up with a way of keeping track of how many users have been created total...
 
@@ -708,65 +769,6 @@ User.all
 # => [#<User @firstname="Draco">, #<User @firstname="Luna">, #<User @firstname="Bellatrix">]
 ```
 
-## Review Questions (5 minutes / 12:30)
-
-- What is the relationship between a class and an instance?
-- What is special about the method `def initialize`?
-- Explain the difference between local, instance, and class variables
-- What is the difference between `attr_accessor`, `attr_reader`, and `attr_writer`?
-
-## You Do: Orange Tree (Rest of Class)
-
-> From Chris Pine's "Learn to Program - Second Edition": p 112, section 13.6
-
-Make an OrangeTree class that has...
-
-- a `height` method that returns its height in feet
-  - it's initial value should be determined by some input
-  - hint: you don't necessarily have to define the method
-- a `one_year_passes` method that, when called, ages the tree one year. Start the age at `0`.
-
-> Test your code.
-
-- Each year the tree grows taller by one foot
-- After 50 years the tree should "die" (its height goes to 0)
-
-> Test your code.
-
-- After the first 5 years, the tree bears 20 oranges
-- You should be able to `count_the_oranges`, which returns the number of oranges on the tree
-
-> Test your code.
-
-- You should be able to `pick_an_orange`, which reduces the number of oranges by 1
-- Ensure that your tree cannot have negative oranges
-- Ensure that after each year your tree has 20 total oranges again
-
-> Test your code.
-
-- The number of oranges the tree bears each year is equal to 20 plus the age of the tree
-
-#### Bonus
-
-Create an `OrangeTreeOrchard` class that manages multiple `OrangeTrees`. It can...
-
-- Age all the trees by one year
-- Pick and count all the fruit
-- Calculate average height and fruit of all orange trees
-
-## Glossary
-
-* **Class**: a blueprint for objects
-* **Instance**: an object that is created using a class
-* **Instance Variable**: a property that is particular to an instance
-* **Class Variable:** a property that is accessible by all instances of a class
-* **Instance Method**: a method that can be called by an instance of a class (e.g., `sample_user.reset_password`)
-* **Class Method**: a method that can be called by a class (e.g., `User.list_user`)
-* **`initialize`**: a class method that, when triggered, creates an instance and assigns initial properties
-* **`.new`**: a class method that, when called, triggers its `initialize` method
-* **`attr_accessor`**: a setting that allows you to directly "get" or "set" an instance variable
-
-------
 
 ## Bonus: Public and Private Methods
 
