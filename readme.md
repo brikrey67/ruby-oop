@@ -923,7 +923,7 @@ Clone this exercise and follow the instructions in the readme.
 **[Scrabble Word Scorer](https://git.generalassemb.ly/ga-wdi-exercises/scrabbler)**
 
 ## Resources
-
+- [OOP Inheritance Class](https://git.generalassemb.ly/ga-wdi-lessons/ruby-oop-inheritance/blob/master/readme.md)
 - [Variables cheat sheet](variables.md)
 - Other exercises
   - [Monkeys](https://git.generalassemb.ly/ga-wdi-exercises/oop_monkey)
